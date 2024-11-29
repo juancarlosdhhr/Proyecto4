@@ -1,20 +1,18 @@
-import "./Header.css"
-//Importamos data
-import data from "../../../data/data";
-//Le hacemos destructuring de las partes que queremos de data
-const {hero, hero_alt, title, subtitle} = data;
+import "./Header.css";
 
-//Creamos un componente que haga uso de esos datos
 const Header = () => `
-<header>
- <img src="${hero}" alt="${hero_alt}" />
- <h1>${title}</h1>
- <h2>${subtitle}</h2>
-</header>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Películas</a></li>
+        <li><a href="#">Series</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <input type="text" id="search" placeholder="Busca una película o serie" />
+  </header>
 `;
 
-
-
-//Lo exportamos
 export default Header;
-
