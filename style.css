@@ -1,3 +1,4 @@
+/* Mantener el estilo básico que ya tienes */
 * {
   margin: 0;
   padding: 0;
@@ -57,6 +58,7 @@ input#search {
   border-radius: 5px;
 }
 
+/* Películas: estilo con hover */
 .movie-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -70,26 +72,20 @@ input#search {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .movie-item img {
   width: 100%;
   border-radius: 5px;
+  transition: opacity 0.3s ease;
 }
 
-footer {
-  background-color: #111;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-footer .socials a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-footer .socials a:hover {
-  text-decoration: underline;
+.movie-item:hover img {
+  opacity: 0.9;
 }

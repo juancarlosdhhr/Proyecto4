@@ -1,6 +1,6 @@
 #movies img, #series img {
     width: 100%;
-    height: 400px; /* Aumenta la altura de las imágenes */
+    height: 400px; 
     object-fit: cover;
   }
   
