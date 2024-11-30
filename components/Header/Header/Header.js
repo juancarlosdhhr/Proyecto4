@@ -6,12 +6,13 @@ const Header = () => `
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Películas</a></li>
-        <li><a href="#">Series</a></li>
+        <li><a href="#" id="peliculas">Acerca de</a></li>
+         <li><a href="#" id="peliculas">Contacto</a></li>
+        
       
       </ul>
     </nav>
-    <input type="text" id="search" placeholder="Busca una película o serie" />
+    <input type="text" id="search" placeholder="Busca una película" />
   </header>
 `;
 
