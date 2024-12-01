@@ -14,3 +14,8 @@ footer .socials a {
 footer .socials a:hover {
   text-decoration: underline;
 }
+
+
+footer .socials {
+  margin-top: 20px; /* Espaciado entre copyright y redes sociales */
+}
