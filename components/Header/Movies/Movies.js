@@ -1,6 +1,6 @@
 import './Movies.css';
 
-// Función para generar las estrellas según la puntuación
+// Función para pintar las estrellas según la puntuación
 const renderStars = (rating) => {
   const maxStars = 5;
   const filledStars = Math.round(rating / 2); // Escala de 1-10 a 1-5
@@ -8,9 +8,9 @@ const renderStars = (rating) => {
 
   for (let i = 1; i <= maxStars; i++) {
     if (i <= filledStars) {
-      starsHtml += '★'; // Estrella rellena
+      starsHtml += '★'; 
     } else {
-      starsHtml += '☆'; // Estrella vacía
+      starsHtml += '☆'; 
     }
   }
 
