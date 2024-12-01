@@ -6,8 +6,8 @@ import { fetchMovies, fetchSearchResults } from "./components/Header/api/api"; /
 
 const app = document.querySelector("#app");
 
-// Función para manejar la búsqueda
-const handleSearch = async () => {
+// Función para la búsqueda
+const searchFunction = async () => {
   const searchQuery = document.querySelector("#search").value;
   if (searchQuery) {
     // Si hay texto en el buscador, realizamos la búsqueda
@@ -26,7 +26,7 @@ const renderMovies = (movies) => {
   moviesContainer.innerHTML = Movies(movies);
 };
 
-const handleFilterChange = async () => {
+const FilterChange = async () => {
   const selectedFilter = document.querySelector("#filter-select").value;
   let filteredMovies = [];
 
@@ -44,8 +44,8 @@ const handleFilterChange = async () => {
   renderMovies(filteredMovies);
 };
 
-// Inicialización
-const init = async () => {
+//Función para inicializar la página 
+const buildWebsite = async () => {
   const movies = await fetchMovies();
   app.innerHTML = `
     ${Header()}
@@ -58,8 +58,8 @@ const init = async () => {
   const searchInput = document.querySelector("#search");
 
   // Detectamos cambios en el filtro y el buscador
-  filterSelect.addEventListener("change", handleFilterChange);
-  searchInput.addEventListener("input", handleSearch); // Detectamos lo que escribe el usuario en el buscador
+  filterSelect.addEventListener("change", FilterChange);
+  searchInput.addEventListener("input", searchFunction); // Detectamos lo que escribe el usuario en el buscador
 };
 
-init();
+buildWebsite();
