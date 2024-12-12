@@ -37,9 +37,9 @@ nav ul li a {
 
 @media (max-width: 768px) {
     header img {
-      width: 200px; /* Reduce el ancho del logo */
-      height: auto; /* Ajusta proporcionalmente la altura */
-      margin-bottom: 10px; /* Ajusta el margen inferior */
+      width: 200px; 
+      height: auto; 
+      margin-bottom: 10px; 
     }
   }
   

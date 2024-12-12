@@ -1,4 +1,4 @@
-/* Mantener el estilo básico que ya tienes */
+
 * {
   margin: 0;
   padding: 0;
@@ -58,7 +58,7 @@ input#search {
   border-radius: 5px;
 }
 
-/* Películas: estilo con hover */
+
 .movie-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
