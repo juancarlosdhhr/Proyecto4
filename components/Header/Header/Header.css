@@ -1,7 +1,7 @@
 header img {
 height: 300px;
 width: 50%;
-object-fit: cover;
+/* object-fit: cover; */
 }
 
 header {
