@@ -2,7 +2,7 @@ import "./Header.css";
 
 const Header = () => `
   <header>
-    <img src="/assets/logocinema.jpg" alt="Logo" class="logo" />
+    <img src="../../assets/logocinema.jpg" alt="Logo" class="logo" />
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
