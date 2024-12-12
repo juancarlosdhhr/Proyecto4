@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
-    background-color: #111;
+    background-color: white;
     color: #fff;
   }
   
@@ -43,12 +43,12 @@
   
   form button {
     background-color: white;
-    color: rgb(10, 10, 10);
+    color: rgb(12, 11, 11);
     cursor: pointer;
     font-weight: bold;
   }
   
   form button:hover {
-    background-color: #bf0810;
+    background-color: #d8d7d7f0;
   }
   

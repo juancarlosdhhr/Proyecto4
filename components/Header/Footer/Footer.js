@@ -4,7 +4,7 @@ import "./Footer.css"
 const Footer = () => `
   <footer>
     <div class="footer-content">
-      <p>&copy; 2024 Movie App</p>
+      <p>&copy; Cinema 2024</p>
       <div class="socials">
        <a href="https://facebook.com" target="_blank">
   <i class="fab fa-facebook"></i> Facebook
