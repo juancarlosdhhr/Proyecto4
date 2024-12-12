@@ -1,30 +1,34 @@
 import Header from "./components/Header/Header/Header";
 import Movies from "./components/Header/Movies/Movies";
 import Filters from "./components/Header/Filters/Filters";
-import Footer from "./components/Header/Footer/Footer"; 
-import { fetchMovies, fetchSearchResults } from "./components/Header/api/api"; // Nueva función para búsqueda
+import Footer from "./components/Header/Footer/Footer";
+import Acercade from "./components/Header/Acercade/Acercade";
+import Contacto from "./components/Header/Contacto/Contacto"; 
+import { fetchMovies, fetchSearchResults } from "./components/Header/api/api";
 
 const app = document.querySelector("#app");
 
-// Función para la búsqueda
+
 const searchFunction = async () => {
   const searchQuery = document.querySelector("#search").value;
   if (searchQuery) {
-    // Si hay texto en el buscador, realizamos la búsqueda
     const searchResults = await fetchSearchResults(searchQuery);
-    renderMovies(searchResults);  // Renderizamos los resultados de la búsqueda
+    renderMovies(searchResults); 
   } else {
-    // Si no hay texto, mostramos todas las películas
     const movies = await fetchMovies();
-    renderMovies(movies);
+    renderMovies(movies); 
   }
 };
 
-// Renderizar películas o series
 const renderMovies = (movies) => {
   const moviesContainer = document.querySelector("#movies");
-  moviesContainer.innerHTML = Movies(movies);
+  
+  const filteredMovies = movies.filter(movie => movie.poster_path);
+
+  moviesContainer.innerHTML = Movies(filteredMovies);
 };
+
+
 
 const FilterChange = async () => {
   const selectedFilter = document.querySelector("#filter-select").value;
@@ -37,29 +41,51 @@ const FilterChange = async () => {
     filteredMovies = await fetchMovies();
     filteredMovies = filteredMovies.filter((movie) => movie.popularity > 1000);
   } else {
-    // Filtros por género
     filteredMovies = await fetchMovies(selectedFilter);
   }
 
   renderMovies(filteredMovies);
 };
 
-//Función para inicializar la página 
-const buildWebsite = async () => {
-  const movies = await fetchMovies();
-  app.innerHTML = `
-    ${Header()}
-    ${Filters()}
-    <section id="movies">${Movies(movies)}</section>
-    ${Footer()}
-  `;
 
-  const filterSelect = document.querySelector("#filter-select");
-  const searchInput = document.querySelector("#search");
+const renderContent = async () => {
+  const hash = window.location.hash; 
 
-  // Detectamos cambios en el filtro y el buscador
-  filterSelect.addEventListener("change", FilterChange);
-  searchInput.addEventListener("input", searchFunction); // Detectamos lo que escribe el usuario en el buscador
+  if (hash === "#acerca-de") {
+    
+    app.innerHTML = `
+      ${Header()}
+      ${Acercade()}
+      ${Footer()}
+    `;
+  } else if (hash === "#contacto") {
+    
+    app.innerHTML = `
+      ${Header()}
+      ${Contacto()}
+      ${Footer()}
+    `;
+  } else {
+   
+    const movies = await fetchMovies();
+    app.innerHTML = `
+      ${Header()}
+      ${Filters()}
+      <section id="movies">${Movies(movies)}</section>
+      ${Footer()}
+    `;
+
+    const filterSelect = document.querySelector("#filter-select");
+    const searchInput = document.querySelector("#search");
+
+    
+    filterSelect.addEventListener("change", FilterChange);
+    searchInput.addEventListener("input", searchFunction);
+  }
 };
 
-buildWebsite();
+
+window.addEventListener("hashchange", renderContent);
+
+
+renderContent();

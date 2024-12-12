@@ -1,0 +1,54 @@
+#contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  form input,
+  form textarea,
+  form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  form input,
+  form textarea {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  form input::placeholder,
+  form textarea::placeholder {
+    color: #888;
+  }
+  
+  form button {
+    background-color: white;
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  form button:hover {
+    background-color: #bf0810;
+  }
+  
