@@ -12,7 +12,7 @@ const Header = () => `
       
       </ul>
     </nav>
-    <input type="text" id="search" placeholder="Busca una película" />
+    <input type="text" id="search" class="search-bar" placeholder="Busca una película" />
   </header>
 `;
 

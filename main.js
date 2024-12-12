@@ -8,11 +8,10 @@ import { fetchMovies, fetchSearchResults } from "./components/Header/api/api";
 
 const app = document.querySelector("#app");
 
-
 const searchFunction = async () => {
   const searchQuery = document.querySelector("#search").value;
   if (searchQuery) {
-    const searchResults = await fetchSearchResults(searchQuery);
+    const searchResults = await fetchSearchResults(searchQuery); 
     renderMovies(searchResults); 
   } else {
     const movies = await fetchMovies();
@@ -27,8 +26,6 @@ const renderMovies = (movies) => {
 
   moviesContainer.innerHTML = Movies(filteredMovies);
 };
-
-
 
 const FilterChange = async () => {
   const selectedFilter = document.querySelector("#filter-select").value;
@@ -47,26 +44,33 @@ const FilterChange = async () => {
   renderMovies(filteredMovies);
 };
 
-
 const renderContent = async () => {
   const hash = window.location.hash; 
+  const searchBar = document.querySelector("#search");
 
-  if (hash === "#acerca-de") {
-    
-    app.innerHTML = `
-      ${Header()}
-      ${Acercade()}
-      ${Footer()}
-    `;
-  } else if (hash === "#contacto") {
-    
-    app.innerHTML = `
-      ${Header()}
-      ${Contacto()}
-      ${Footer()}
-    `;
+  if (hash === "#acerca-de" || hash === "#contacto") {
+    if (searchBar) {
+      searchBar.style.display = "none";
+    }
+
+    if (hash === "#acerca-de") {
+      app.innerHTML = `
+        ${Header()}
+        ${Acercade()}
+        ${Footer()}
+      `;
+    } else if (hash === "#contacto") {
+      app.innerHTML = `
+        ${Header()}
+        ${Contacto()}
+        ${Footer()}
+      `;
+    }
   } else {
-   
+    if (searchBar) {
+      searchBar.style.display = "block";
+    }
+
     const movies = await fetchMovies();
     app.innerHTML = `
       ${Header()}
@@ -76,16 +80,12 @@ const renderContent = async () => {
     `;
 
     const filterSelect = document.querySelector("#filter-select");
-    const searchInput = document.querySelector("#search");
 
-    
     filterSelect.addEventListener("change", FilterChange);
     searchInput.addEventListener("input", searchFunction);
   }
 };
 
-
 window.addEventListener("hashchange", renderContent);
-
 
 renderContent();
